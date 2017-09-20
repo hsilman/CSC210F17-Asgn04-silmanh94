@@ -17,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
     // currency and percent formatter objects
     private static final NumberFormat currencyFormat =
             NumberFormat.getCurrencyInstance();
-    private static final NumberFormat percentFormat =
+    private static final NumberFormat interestFormat =
             NumberFormat.getPercentInstance();
+
 
     //initialize variables and objects for input/views
     private double mortgageAmount = 0.0;
@@ -73,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
         //format years and display in yearsTextView
         yearsTextView.setText(String.valueOf(years));
 
-        //format interest rate and display in interestRateTextView
-        interestRateTextView.setText(percentFormat.format(interestRate));
-
         //calculate loan balance after down payment
         double balance = mortgageAmount - downPaymentAmount;
 
@@ -127,11 +125,11 @@ public class MainActivity extends AppCompatActivity {
                 mortgageAmount = Double.parseDouble(s.toString()) / 100.0;
                 mortgageAmountTextView.setText(currencyFormat.format(mortgageAmount));
             } catch (NumberFormatException e) { // if s is empty or non-numeric
-                mortgageAmountTextView.setText("Enter Mortgage Amount");
+                mortgageAmountTextView.setText("");
                 mortgageAmount = 0.0;
             }
 
-            calculate(); // update the tip and total TextViews
+            calculate(); // update the mortgage payment TextView
         }
 
 
@@ -152,15 +150,15 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start,
                                   int before, int count) {
 
-            try { // get mortgage amount and display currency formatted value
+            try { // get down payment and display currency formatted value
                 downPaymentAmount = Double.parseDouble(s.toString()) / 100.0;
                 downPaymentTextView.setText(currencyFormat.format(downPaymentAmount));
             } catch (NumberFormatException e) { // if s is empty or non-numeric
-                downPaymentTextView.setText("Enter Downpayment Amount");
+                downPaymentTextView.setText("");
                 downPaymentAmount = 0.0;
             }
 
-            calculate(); // update the tip and total TextViews
+            calculate(); // update the mortgage payment TextView
         }
 
 
@@ -181,15 +179,16 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start,
                                   int before, int count) {
 
-            try { // get mortgage amount and display currency formatted value
-                interestRate = Double.parseDouble(s.toString()) / 100.0;
-                interestRateTextView.setText(percentFormat.format(interestRate));
+            try { // get interest rate and display percent formatted value
+                interestFormat.setMinimumFractionDigits(3);
+                interestRate = Double.parseDouble(s.toString()) / 100000.0;
+                interestRateTextView.setText(interestFormat.format(interestRate));
             } catch (NumberFormatException e) { // if s is empty or non-numeric
-                interestRateTextView.setText("Enter Interest Rate");
+                interestRateTextView.setText("");
                 interestRate = 0.0;
             }
 
-            calculate(); // update the tip and total TextViews
+            calculate(); // update the mortgage payment TextView
         }
 
 

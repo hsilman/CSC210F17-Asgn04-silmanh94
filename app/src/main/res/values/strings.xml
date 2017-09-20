@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Mortgage Calculator</string>
-    <string name="mortgage_amount">Mortgage Total Amount</string>
-    <string name="down_payment_amount">Down Payment Amount</string>
+    <string name="mortgage_amount">Loan Balance</string>
+    <string name="down_payment_amount">Down Payment</string>
     <string name="interest_rate">Interest Rate</string>
     <string name="years_number">15</string>
     <string name="years">Years</string>

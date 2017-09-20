@@ -4,16 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2"
+    android:columnCount="3"
     android:useDefaultMargins="true"
     tools:context="com.harrysilman.mortgagecalculator.MainActivity">
+
+    <TextView
+        android:id="@+id/mortgageLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_gravity="center_vertical|end"
+        android:layout_row="0"
+        android:elevation="@dimen/elevation"
+        android:padding="@dimen/textview_padding"
+        android:text="@string/mortgage_amount"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/mediumText" />
 
     <EditText
         android:id="@+id/mortgageAmountEditText"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="0"
+        android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_gravity="fill_horizontal"
         android:digits="@string/digits"
@@ -21,15 +34,15 @@
         android:includeFontPadding="false"
         android:inputType="number"
         android:maxLength="12"
-        android:singleLine="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="@dimen/mediumText" />
+        android:textSize="@dimen/mediumText"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/mortgageAmountTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="0"
+        android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_gravity="fill_vertical|center_horizontal|fill_horizontal"
         android:layout_row="0"
@@ -37,32 +50,43 @@
         android:elevation="@dimen/elevation"
         android:gravity="center_vertical|fill_horizontal"
         android:padding="@dimen/textview_padding"
-        android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="@dimen/mediumText"
-        tools:text="@string/mortgage_amount" />
+        android:textSize="@dimen/mediumText" />
+
+    <TextView
+        android:id="@+id/downPaymentLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_gravity="center_vertical|end"
+        android:layout_row="1"
+        android:elevation="@dimen/elevation"
+        android:padding="@dimen/textview_padding"
+        android:text="@string/down_payment_amount"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/mediumText" />
 
     <EditText
         android:id="@+id/downPaymentEditText"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="0"
+        android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_gravity="fill_horizontal"
         android:digits="@string/digits"
         android:ems="10"
         android:inputType="number"
         android:maxLength="12"
-        android:singleLine="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="@dimen/mediumText" />
+        android:textSize="@dimen/mediumText"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/downPaymentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="0"
+        android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_gravity="fill"
         android:layout_row="1"
@@ -70,22 +94,34 @@
         android:elevation="@dimen/elevation"
         android:gravity="center_vertical"
         android:padding="@dimen/textview_padding"
-        android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="@dimen/mediumText"
-        tools:text="@string/down_payment_amount" />
+        android:textSize="@dimen/mediumText" />
+
+    <TextView
+        android:id="@+id/interestRateLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_gravity="center_vertical|end"
+        android:layout_row="2"
+        android:elevation="@dimen/elevation"
+        android:padding="@dimen/textview_padding"
+        android:text="@string/interest_rate"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/mediumText" />
 
     <EditText
         android:id="@+id/interestRateEditText"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="0"
+        android:layout_column="1"
+        android:layout_gravity="fill_horizontal"
         android:digits="@string/digits"
         android:ems="10"
         android:inputType="number"
         android:maxLength="4"
-        android:singleLine="true"
+        android:maxLines="1"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="@dimen/mediumText" />
 
@@ -93,16 +129,15 @@
         android:id="@+id/interestRateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_gravity="fill"
+        android:layout_column="1"
+        android:layout_gravity="fill_horizontal"
         android:layout_row="2"
         android:background="@drawable/edit_text_background"
         android:elevation="@dimen/elevation"
         android:gravity="center_vertical"
         android:padding="@dimen/textview_padding"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="@dimen/mediumText"
-        tools:text="@string/interest_rate" />
+        android:textSize="@dimen/mediumText" />
 
     <TextView
         android:id="@+id/yearsTextView"
@@ -143,7 +178,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="0"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:layout_row="4"
         android:elevation="@dimen/elevation"
         android:padding="@dimen/textview_padding"
@@ -160,9 +195,7 @@
         android:layout_row="4"
         android:background="@drawable/result_background"
         android:elevation="@dimen/elevation"
-        android:inputType="number"
         android:padding="@dimen/textview_padding"
-        android:text="Medium Text"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="@dimen/mediumText" />
